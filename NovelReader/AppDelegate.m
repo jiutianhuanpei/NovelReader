@@ -31,6 +31,7 @@
     
     UINavigationBar.appearance.barTintColor = UIColor.redColor;
     UINavigationBar.appearance.titleTextAttributes = @{NSForegroundColorAttributeName : UIColor.whiteColor};
+    UINavigationBar.appearance.tintColor = UIColor.whiteColor;
     
     return YES;
 }

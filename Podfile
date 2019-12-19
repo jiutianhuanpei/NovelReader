@@ -7,6 +7,7 @@ target 'NovelReader' do
   pod 'YYModel'
   pod 'Masonry'
   pod 'SDWebImage'
+  pod 'FMDB'
   # Pods for NovelReader
 
 end

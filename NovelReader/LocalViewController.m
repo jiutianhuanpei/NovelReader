@@ -10,6 +10,7 @@
 #import "HBTools.h"
 #import "HBLocalReadVC.h"
 #import "HBLocalBook.h"
+#import "HBDBManager.h"
 
 @interface LocalViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -81,8 +82,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HBLocalBook *book = _bookList[indexPath.row];
     
-    HBLocalReadVC *vc = [[HBLocalReadVC alloc] initWithLocalBook:book];
-    [self presentViewController:vc animated:true completion:nil];
+    __weak typeof(self) weakSelf = self;
+    [HBDBManager.sharedInstance getBookmarkFromLocalBook:book complete:^(NSInteger chapterIndex, NSInteger progress) {
+        
+        HBLocalReadVC *vc = [[HBLocalReadVC alloc] initWithLocalBook:book];
+        vc.chapterIndex = chapterIndex;
+        vc.page = progress;
+        [weakSelf presentViewController:vc animated:true completion:nil];
+    }];
+    
 }
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {

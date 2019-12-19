@@ -14,12 +14,15 @@
 #import "HBTopToolView.h"
 #import "HBCatalogVC.h"
 #import "HBConfigManager.h"
+#import "HBDBManager.h"
 
 @interface HBNetReadVC ()<UIPageViewControllerDataSource, HBContentVCDelegate>
 
 @property (nonatomic, strong) UIPageViewController *pageVC;
 
 @property (nonatomic, assign) NSUInteger currentIndex;
+@property (nonatomic, assign) NSUInteger index;
+
 
 @property (nonatomic, weak) HBContentVC *currentVC;
 
@@ -34,12 +37,30 @@
 
 @implementation HBNetReadVC
 
-- (instancetype)initWithBookDetail:(HBNetBookDetail *)book chapterIndex:(NSUInteger)index {
+- (instancetype)initWithBookDetail:(HBNetBook *)book chapterIndex:(NSUInteger)index {
     self = [super init];
     if (self) {
         _currentIndex = index;
         
         _manager = [[HBNetBookManager alloc] initWithBook:book];
+    }
+    return self;
+}
+
+- (instancetype)initWithBookId:(NSString *)bookId chapterId:(NSString *)chapterId index:(NSUInteger)index {
+    self = [super init];
+    if (self) {
+        
+        HBNetBook *book = [HBDBManager.sharedInstance getBooksWithUrl:bookId].firstObject;
+        
+        HBChapter *chapter = [book.chapterList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.chapterId = %@", chapterId]].firstObject;
+        NSInteger chapterindex = [book.chapterList indexOfObject:chapter];
+        _manager = [[HBNetBookManager alloc] initWithBook:book];
+        
+        if (chapterindex != NSNotFound) {
+            _currentIndex = chapterindex;
+        }
+        _index = index;
     }
     return self;
 }
@@ -61,7 +82,7 @@
     [_manager parsingShowDataAtChapterAtIndex:self.currentIndex complete:^{
         
         //加载书签
-        HBShowData *data = [weakSelf.manager showDataInChapter:weakSelf.currentIndex page:0];
+        HBShowData *data = [weakSelf.manager showDataInChapter:weakSelf.currentIndex page:weakSelf.index];
         dispatch_async(dispatch_get_main_queue(), ^{
             
             weakSelf.currentVC.showData = data;
@@ -79,9 +100,9 @@
 - (void)showCatalogVC {
     HBCatalogVC *vc = HBCatalogVC.new;
     __weak typeof(self) weakSelf = self;
-    [vc configWithTotalRows:_manager.book.list.count selectRow:self.currentVC.showData.chapterIndex showTitle:^NSString * _Nonnull(NSIndexPath * _Nonnull indexPath) {
-        HBNetBookChapter *chapter = weakSelf.manager.book.list[indexPath.row];
-        return chapter.name;
+    [vc configWithTotalRows:_manager.book.chapterList.count selectRow:self.currentVC.showData.chapterIndex showTitle:^NSString * _Nonnull(NSIndexPath * _Nonnull indexPath) {
+        HBChapter *chapter = weakSelf.manager.book.chapterList[indexPath.row];
+        return chapter.title;
     }];
     
     vc.didSelectCallback = ^(NSInteger chapterIndex) {
@@ -116,14 +137,10 @@
 
 #pragma mark - UIPageViewControllerDataSource
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    
-    
     return [self p_lastPage];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    
-    
     return [self p_nextPage];
 }
 
@@ -217,10 +234,11 @@
 - (HBTopToolView *)topToolView {
     if (!_topToolView) {
         _topToolView = HBTopToolView.new;
-        _topToolView.title = self.manager.book.introduce.name;
+        _topToolView.title = self.manager.book.name;
         __weak typeof(self) weakSelf = self;
         _topToolView.closeCallback = ^{
             HB_ShowStatusBar(true);
+            [HBDBManager.sharedInstance saveBookmark:weakSelf.currentVC.showData];
             [weakSelf dismissViewControllerAnimated:true completion:nil];
         };
     }

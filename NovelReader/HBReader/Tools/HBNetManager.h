@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HBNetSearchBook.h"
-#import "HBNetBookDetail.h"
-#import "HBNetChapter.h"
+#import "HBNetBook.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,11 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedInstance;
 
-- (void)searchBookWithName:(NSString *)bookName complete:(void(^)(NSError *_Nullable error, NSArray<HBNetSearchBook *> * _Nullable bookList))complete;
+- (void)searchBookWithName:(NSString *)bookName complete:(void(^)(NSError *_Nullable error, NSArray<HBNetBook *> * _Nullable bookList))complete;
 
-- (void)fetchNetBookDetailWithUrl:(NSString *)url complete:(void(^)(NSError * _Nullable error, HBNetBookDetail * _Nullable bookDetail))complete;
+- (void)updateNetBookChapterList:(HBNetBook *)book
+                       complete:(void(^)(NSError * _Nullable error, HBNetBook * _Nullable bookDetail))complete;
 
-- (void)fetchNetBookContentWithUrl:(NSString *)url complete:(void(^)(NSError * _Nullable error, HBNetChapter * _Nullable chapter))complete;
+- (void)fetchNetBookContentWithUrl:(NSString *)url complete:(void(^)(NSError * _Nullable error, HBChapter * _Nullable chapter))complete;
 
 @end
 

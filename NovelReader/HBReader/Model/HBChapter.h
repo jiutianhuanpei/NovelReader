@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HBChapter : NSObject
 
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *chapterId;
 @property (nonatomic, copy) NSString *text;
 
 @end

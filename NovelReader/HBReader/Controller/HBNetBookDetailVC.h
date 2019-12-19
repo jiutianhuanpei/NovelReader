@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HBNetSearchBook.h"
-
+#import "HBNetBook.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HBNetBookDetailVC : UITableViewController
 
-- (instancetype)initWithNetBook:(HBNetSearchBook *)book;
+- (instancetype)initWithNetBook:(HBNetBook *)book;
 
 @end
 

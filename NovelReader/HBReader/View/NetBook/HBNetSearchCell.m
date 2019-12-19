@@ -62,7 +62,7 @@
     return self;
 }
 
-- (void)setBook:(HBNetSearchBook *)book {
+- (void)setBook:(HBNetBook *)book {
     _book = book;
     
     _introduceLbl.numberOfLines = _introduceMaxLines == 0 ? 2 : _introduceMaxLines;
@@ -81,7 +81,7 @@
     
     _authorLbl.text = authStr;
     _introduceLbl.text = book.introduce;
-    _updateLbl.text = book.updateChapterTitle;
+    _updateLbl.text = book.updateTitle;
 }
 
 #pragma mark - 属性

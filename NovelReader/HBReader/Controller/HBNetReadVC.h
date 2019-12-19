@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HBNetBookDetail.h"
+#import "HBNetBook.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HBNetReadVC : UIViewController
 
-- (instancetype)initWithBookDetail:(HBNetBookDetail *)book chapterIndex:(NSUInteger)index;
+- (instancetype)initWithBookDetail:(HBNetBook *)book chapterIndex:(NSUInteger)index;
+
+- (instancetype)initWithBookId:(NSString *)bookId
+                     chapterId:(NSString *)chapterId
+                         index:(NSUInteger)index;
 
 @end
 

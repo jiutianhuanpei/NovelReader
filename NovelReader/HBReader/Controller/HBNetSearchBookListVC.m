@@ -12,8 +12,9 @@
 
 @interface HBNetSearchBookListVC ()
 
-@property (nonatomic, strong) NSMutableArray<HBNetSearchBook *> *dataArray;
+@property (nonatomic, strong) NSMutableArray<HBNetBook *> *dataArray;
 @property (nonatomic, weak) UISearchController *searchVC;
+
 
 @end
 
@@ -25,16 +26,21 @@
     [self.tableView registerClass:HBNetSearchCell.class forCellReuseIdentifier:NSStringFromClass(HBNetSearchCell.class)];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    _dataArray = @[].mutableCopy;
-    
+    _dataArray = @[].mutableCopy;    
     // Do any additional setup after loading the view.
 }
+
+- (void)dealloc {
+    NSLog(@"");
+}
+
+
 
 #pragma mark - DataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HBNetSearchCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(HBNetSearchCell.class) forIndexPath:indexPath];
     
-    HBNetSearchBook *book = _dataArray[indexPath.row];
+    HBNetBook *book = _dataArray[indexPath.row];
     cell.book = book;
     
     return cell;
@@ -46,7 +52,7 @@
 
 #pragma mark - Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    HBNetSearchBook *book = _dataArray[indexPath.row];
+    HBNetBook *book = _dataArray[indexPath.row];
     if ([_delegate respondsToSelector:@selector(didSelectNetBook:)]) {
         [_delegate didSelectNetBook:book];
     }
@@ -65,7 +71,7 @@
     }
     
     __weak typeof(self) weakSelf = self;
-    [HBNetManager.sharedInstance searchBookWithName:searchController.searchBar.text complete:^(NSError * _Nullable error, NSArray<HBNetSearchBook *> * _Nullable bookList) {
+    [HBNetManager.sharedInstance searchBookWithName:searchController.searchBar.text complete:^(NSError * _Nullable error, NSArray<HBNetBook *> * _Nullable bookList) {
        
         [weakSelf.dataArray removeAllObjects];
         [weakSelf.dataArray addObjectsFromArray:bookList];
@@ -76,6 +82,7 @@
     }];
     
 }
+
 
 
 @end

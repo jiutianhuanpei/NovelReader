@@ -15,7 +15,7 @@
     _localBook = true;
 }
 
-- (void)setNetBook:(HBNetBookDetail *)netBook {
+- (void)setNetBook:(HBNetBook *)netBook {
     _netBook = netBook;
     _localBook = false;
 }

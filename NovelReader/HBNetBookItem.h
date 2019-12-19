@@ -1,8 +1,8 @@
 //
-//  HBNetSearchCell.h
+//  HBNetBookItem.h
 //  NovelReader
 //
-//  Created by 沈红榜 on 2019/12/16.
+//  Created by 沈红榜 on 2019/12/17.
 //  Copyright © 2019 沈红榜. All rights reserved.
 //
 
@@ -11,10 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HBNetSearchCell : UITableViewCell
+@interface HBNetBookItem : UICollectionViewCell
 
 @property (nonatomic, strong) HBNetBook *book;
-@property (nonatomic, assign) NSUInteger introduceMaxLines;
 
 @end
 

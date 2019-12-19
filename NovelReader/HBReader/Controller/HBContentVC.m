@@ -100,8 +100,8 @@
 
         title = chapter.title;
     } else {
-        HBNetBookChapter *chapter =_showData.netBook.list[_showData.chapterIndex];
-        title = chapter.name;
+        HBChapter *chapter =_showData.netBook.chapterList[_showData.chapterIndex];
+        title = chapter.title;
     }
     
     

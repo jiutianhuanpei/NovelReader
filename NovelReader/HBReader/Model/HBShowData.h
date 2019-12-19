@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HBLocalBook.h"
-#import "HBNetBookDetail.h"
+#import "HBNetBook.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSUInteger pageIndex;
 
 @property (nonatomic, weak) HBLocalBook *book;
-@property (nonatomic, weak) HBNetBookDetail *netBook;
+@property (nonatomic, weak) HBNetBook *netBook;
 
 @property (nonatomic, assign, getter=isLocalBook, readonly) BOOL localBook;
 

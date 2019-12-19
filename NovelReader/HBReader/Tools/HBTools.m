@@ -112,7 +112,21 @@ void HB_ShowStatusBar(BOOL show) {
     
     if (range.location == NSNotFound) {
         //没找到
-        return nil;
+        HBChapter *chapter = HBChapter.new;
+        
+        NSString *title = [novelText componentsSeparatedByString:@"\n"].firstObject;
+        
+        if (title.length == 0) {
+            title = [novelText substringToIndex:MIN(10, novelText.length)];
+        }
+        
+        title = [title stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+        
+        chapter.title = title;
+        chapter.chapterId = title;
+        chapter.text = novelText;
+        
+        return @[chapter];
     }
     
     

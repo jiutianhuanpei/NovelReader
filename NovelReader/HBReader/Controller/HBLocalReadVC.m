@@ -14,6 +14,7 @@
 #import "HBTopToolView.h"
 #import "HBCatalogVC.h"
 #import "HBConfigManager.h"
+#import "HBDBManager.h"
 
 @interface HBLocalReadVC ()<UIPageViewControllerDataSource, HBContentVCDelegate>
 
@@ -45,6 +46,8 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -60,7 +63,7 @@
     [_manager parsingShowDataAtChapterAtIndex:self.chapterIndex complete:^{
         
         //加载书签
-        HBShowData *data = [weakSelf.manager showDataInChapter:weakSelf.chapterIndex page:0];
+        HBShowData *data = [weakSelf.manager showDataInChapter:weakSelf.chapterIndex page:weakSelf.page];
         weakSelf.currentVC.showData = data;
     }];
     [self configCallback];
@@ -211,6 +214,7 @@
         __weak typeof(self) weakSelf = self;
         _topToolView.closeCallback = ^{
             HB_ShowStatusBar(true);
+            [HBDBManager.sharedInstance saveBookmark:weakSelf.currentVC.showData];
             [weakSelf dismissViewControllerAnimated:true completion:nil];
         };
     }

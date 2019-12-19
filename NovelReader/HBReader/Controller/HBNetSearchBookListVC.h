@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-@class HBNetSearchBook;
+@class HBNetBook;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol HBNetSearchBookListVCDelegate <NSObject>
 
-- (void)didSelectNetBook:(HBNetSearchBook *)book;
+- (void)didSelectNetBook:(HBNetBook *)book;
 
 @end
 

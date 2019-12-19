@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HBNetBookDetail.h"
+#import "HBNetBook.h"
 #import "HBBookProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HBNetBookManager : NSObject<HBBookProtocol>
 
-@property (nonatomic, strong, readonly) HBNetBookDetail *book;
+@property (nonatomic, strong, readonly) HBNetBook *book;
 
-- (instancetype)initWithBook:(HBNetBookDetail *)book;
+- (instancetype)initWithBook:(HBNetBook *)book;
 
 
 

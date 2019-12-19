@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithLocalBook:(HBLocalBook *)book;
 
 @property (nonatomic, assign) NSInteger chapterIndex;
+@property (nonatomic, assign) NSInteger page;
+
 
 @end
 

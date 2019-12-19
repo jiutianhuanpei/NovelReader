@@ -16,8 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HBBook : NSObject
 
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *bookId;
 @property (nonatomic, copy) NSString *author;
-@property (nonatomic, copy) NSString *coverUrlStr;
+@property (nonatomic, copy) NSString *cover;
 
 @property (nonatomic, copy) NSArray<HBChapter *> *chapterList;
 @property (nonatomic, copy, readonly) NSArray<NSString *> *catalogList;

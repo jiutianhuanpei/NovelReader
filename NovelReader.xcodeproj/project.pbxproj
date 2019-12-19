@@ -23,14 +23,11 @@
 		92A4A51423A758D100F82FCC /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4A51323A758D100F82FCC /* RootViewController.m */; };
 		92A4A51723A7594C00F82FCC /* NetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4A51623A7594C00F82FCC /* NetViewController.m */; };
 		92A4A51A23A75BC600F82FCC /* HBNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4A51923A75BC600F82FCC /* HBNetService.m */; };
-		92A4A51E23A769B900F82FCC /* HBNetSearchBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4A51D23A769B900F82FCC /* HBNetSearchBook.m */; };
-		92A4A52123A76A1F00F82FCC /* HBNetBookDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4A52023A76A1F00F82FCC /* HBNetBookDetail.m */; };
 		92A4A52423A76BCA00F82FCC /* HBNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4A52323A76BCA00F82FCC /* HBNetManager.m */; };
 		92A4A52723A76FC200F82FCC /* HBNetSearchBookListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4A52623A76FC200F82FCC /* HBNetSearchBookListVC.m */; };
 		92A4A52B23A773CA00F82FCC /* HBNetSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4A52A23A773CA00F82FCC /* HBNetSearchCell.m */; };
 		92A4A52E23A7751D00F82FCC /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4A52D23A7751D00F82FCC /* UIColor+Hex.m */; };
 		92A4A53123A7776600F82FCC /* UIView+Helps.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4A53023A7776600F82FCC /* UIView+Helps.m */; };
-		92A4A53423A7815300F82FCC /* HBNetChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4A53323A7815300F82FCC /* HBNetChapter.m */; };
 		92A4A53723A7852F00F82FCC /* HBNetBookDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4A53623A7852F00F82FCC /* HBNetBookDetailVC.m */; };
 		92A4A53A23A78B0D00F82FCC /* HBNetReadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4A53923A78B0D00F82FCC /* HBNetReadVC.m */; };
 		92A4A53D23A7D2FE00F82FCC /* HBNetBookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A4A53C23A7D2FE00F82FCC /* HBNetBookManager.m */; };
@@ -38,10 +35,14 @@
 		92ADC20A23A1E39D00CC571E /* HBChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ADC20923A1E39D00CC571E /* HBChapter.m */; };
 		92ADC20E23A1E4AE00CC571E /* HBLocalBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ADC20D23A1E4AE00CC571E /* HBLocalBook.m */; };
 		92ADC21323A2111500CC571E /* HBLocalBookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ADC21223A2111500CC571E /* HBLocalBookManager.m */; };
+		92B3437523AA2F390040296C /* HBNetBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B3437423AA2F390040296C /* HBNetBook.m */; };
 		92BF313323A22B550049B95D /* HBShowData.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BF313223A22B550049B95D /* HBShowData.m */; };
 		92BF313623A267350049B95D /* HBConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BF313523A267350049B95D /* HBConfigManager.m */; };
 		92BF313923A2762F0049B95D /* HBTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BF313823A2762F0049B95D /* HBTopView.m */; };
 		92BF313F23A290A70049B95D /* HBBottomToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BF313E23A290A70049B95D /* HBBottomToolView.m */; };
+		92E7009E23A8C33500BA68BC /* HBDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E7009D23A8C33500BA68BC /* HBDBManager.m */; };
+		92E700A323A8CE8400BA68BC /* UIButton+HB.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E700A223A8CE8400BA68BC /* UIButton+HB.m */; };
+		92E700A623A8D75900BA68BC /* HBNetBookItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E700A523A8D75900BA68BC /* HBNetBookItem.m */; };
 		9A6A473980DB194546C311F8 /* Pods_NovelReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3D0C13A275822FB7B79A1F /* Pods_NovelReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,10 +80,6 @@
 		92A4A51623A7594C00F82FCC /* NetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetViewController.m; sourceTree = "<group>"; };
 		92A4A51823A75BC600F82FCC /* HBNetService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBNetService.h; sourceTree = "<group>"; };
 		92A4A51923A75BC600F82FCC /* HBNetService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBNetService.m; sourceTree = "<group>"; };
-		92A4A51C23A769B900F82FCC /* HBNetSearchBook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBNetSearchBook.h; sourceTree = "<group>"; };
-		92A4A51D23A769B900F82FCC /* HBNetSearchBook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBNetSearchBook.m; sourceTree = "<group>"; };
-		92A4A51F23A76A1F00F82FCC /* HBNetBookDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBNetBookDetail.h; sourceTree = "<group>"; };
-		92A4A52023A76A1F00F82FCC /* HBNetBookDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBNetBookDetail.m; sourceTree = "<group>"; };
 		92A4A52223A76BCA00F82FCC /* HBNetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBNetManager.h; sourceTree = "<group>"; };
 		92A4A52323A76BCA00F82FCC /* HBNetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBNetManager.m; sourceTree = "<group>"; };
 		92A4A52523A76FC200F82FCC /* HBNetSearchBookListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBNetSearchBookListVC.h; sourceTree = "<group>"; };
@@ -93,8 +90,6 @@
 		92A4A52D23A7751D00F82FCC /* UIColor+Hex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		92A4A52F23A7776600F82FCC /* UIView+Helps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Helps.h"; sourceTree = "<group>"; };
 		92A4A53023A7776600F82FCC /* UIView+Helps.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Helps.m"; sourceTree = "<group>"; };
-		92A4A53223A7815300F82FCC /* HBNetChapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBNetChapter.h; sourceTree = "<group>"; };
-		92A4A53323A7815300F82FCC /* HBNetChapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBNetChapter.m; sourceTree = "<group>"; };
 		92A4A53523A7852F00F82FCC /* HBNetBookDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBNetBookDetailVC.h; sourceTree = "<group>"; };
 		92A4A53623A7852F00F82FCC /* HBNetBookDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBNetBookDetailVC.m; sourceTree = "<group>"; };
 		92A4A53823A78B0D00F82FCC /* HBNetReadVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBNetReadVC.h; sourceTree = "<group>"; };
@@ -112,6 +107,8 @@
 		92ADC21023A1EB4900CC571E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		92ADC21123A2111500CC571E /* HBLocalBookManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBLocalBookManager.h; sourceTree = "<group>"; };
 		92ADC21223A2111500CC571E /* HBLocalBookManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBLocalBookManager.m; sourceTree = "<group>"; };
+		92B3437323AA2F390040296C /* HBNetBook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBNetBook.h; sourceTree = "<group>"; };
+		92B3437423AA2F390040296C /* HBNetBook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBNetBook.m; sourceTree = "<group>"; };
 		92BF313123A22B550049B95D /* HBShowData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBShowData.h; sourceTree = "<group>"; };
 		92BF313223A22B550049B95D /* HBShowData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBShowData.m; sourceTree = "<group>"; };
 		92BF313423A267350049B95D /* HBConfigManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBConfigManager.h; sourceTree = "<group>"; };
@@ -120,6 +117,13 @@
 		92BF313823A2762F0049B95D /* HBTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBTopView.m; sourceTree = "<group>"; };
 		92BF313D23A290A70049B95D /* HBBottomToolView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBBottomToolView.h; sourceTree = "<group>"; };
 		92BF313E23A290A70049B95D /* HBBottomToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBBottomToolView.m; sourceTree = "<group>"; };
+		92E7009C23A8C33500BA68BC /* HBDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBDBManager.h; sourceTree = "<group>"; };
+		92E7009D23A8C33500BA68BC /* HBDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBDBManager.m; sourceTree = "<group>"; };
+		92E7009F23A8C63700BA68BC /* HBTableString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBTableString.h; sourceTree = "<group>"; };
+		92E700A123A8CE8400BA68BC /* UIButton+HB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+HB.h"; sourceTree = "<group>"; };
+		92E700A223A8CE8400BA68BC /* UIButton+HB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HB.m"; sourceTree = "<group>"; };
+		92E700A423A8D75900BA68BC /* HBNetBookItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBNetBookItem.h; sourceTree = "<group>"; };
+		92E700A523A8D75900BA68BC /* HBNetBookItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBNetBookItem.m; sourceTree = "<group>"; };
 		B994E0A329B2DBAC4A61993E /* Pods-NovelReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovelReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NovelReader/Pods-NovelReader.debug.xcconfig"; sourceTree = "<group>"; };
 		DC3D0C13A275822FB7B79A1F /* Pods_NovelReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NovelReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -174,6 +178,8 @@
 				9206F75B23A0CCD200593596 /* LocalViewController.m */,
 				92A4A51523A7594C00F82FCC /* NetViewController.h */,
 				92A4A51623A7594C00F82FCC /* NetViewController.m */,
+				92E700A423A8D75900BA68BC /* HBNetBookItem.h */,
+				92E700A523A8D75900BA68BC /* HBNetBookItem.m */,
 				92ADC20023A1D77000CC571E /* HBReader */,
 				9206F76023A0CCD500593596 /* Assets.xcassets */,
 				9206F76223A0CCD500593596 /* LaunchScreen.storyboard */,
@@ -187,12 +193,8 @@
 		92A4A51B23A7692F00F82FCC /* NetBook */ = {
 			isa = PBXGroup;
 			children = (
-				92A4A51C23A769B900F82FCC /* HBNetSearchBook.h */,
-				92A4A51D23A769B900F82FCC /* HBNetSearchBook.m */,
-				92A4A51F23A76A1F00F82FCC /* HBNetBookDetail.h */,
-				92A4A52023A76A1F00F82FCC /* HBNetBookDetail.m */,
-				92A4A53223A7815300F82FCC /* HBNetChapter.h */,
-				92A4A53323A7815300F82FCC /* HBNetChapter.m */,
+				92B3437323AA2F390040296C /* HBNetBook.h */,
+				92B3437423AA2F390040296C /* HBNetBook.m */,
 			);
 			path = NetBook;
 			sourceTree = "<group>";
@@ -209,6 +211,7 @@
 		92ADC20023A1D77000CC571E /* HBReader */ = {
 			isa = PBXGroup;
 			children = (
+				92E700A023A8CE6500BA68BC /* Category */,
 				92ADC20423A1D79900CC571E /* Model */,
 				92ADC20123A1D78100CC571E /* Tools */,
 				92ADC20223A1D78B00CC571E /* Controller */,
@@ -235,10 +238,9 @@
 				9206F77B23A0E33600593596 /* HBTools.h */,
 				9206F77C23A0E33600593596 /* HBTools.m */,
 				92327BD623A373A9002A02C6 /* HBToolViewDelegate.h */,
-				92A4A52C23A7751D00F82FCC /* UIColor+Hex.h */,
-				92A4A52D23A7751D00F82FCC /* UIColor+Hex.m */,
-				92A4A52F23A7776600F82FCC /* UIView+Helps.h */,
-				92A4A53023A7776600F82FCC /* UIView+Helps.m */,
+				92E7009C23A8C33500BA68BC /* HBDBManager.h */,
+				92E7009D23A8C33500BA68BC /* HBDBManager.m */,
+				92E7009F23A8C63700BA68BC /* HBTableString.h */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -304,6 +306,19 @@
 				92ADC20D23A1E4AE00CC571E /* HBLocalBook.m */,
 			);
 			path = LocalBook;
+			sourceTree = "<group>";
+		};
+		92E700A023A8CE6500BA68BC /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				92A4A52C23A7751D00F82FCC /* UIColor+Hex.h */,
+				92A4A52D23A7751D00F82FCC /* UIColor+Hex.m */,
+				92A4A52F23A7776600F82FCC /* UIView+Helps.h */,
+				92A4A53023A7776600F82FCC /* UIView+Helps.m */,
+				92E700A123A8CE8400BA68BC /* UIButton+HB.h */,
+				92E700A223A8CE8400BA68BC /* UIButton+HB.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		F7E4B8C36143E614494F3C40 /* Frameworks */ = {
@@ -412,6 +427,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NovelReader/Pods-NovelReader-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
@@ -420,6 +436,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
@@ -437,9 +454,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				92BF313623A267350049B95D /* HBConfigManager.m in Sources */,
+				92E700A323A8CE8400BA68BC /* UIButton+HB.m in Sources */,
 				92327BE223A3C489002A02C6 /* HBThemeListView.m in Sources */,
 				92ADC20723A1D7AD00CC571E /* HBBook.m in Sources */,
-				92A4A52123A76A1F00F82FCC /* HBNetBookDetail.m in Sources */,
 				92BF313F23A290A70049B95D /* HBBottomToolView.m in Sources */,
 				92A4A52423A76BCA00F82FCC /* HBNetManager.m in Sources */,
 				92BF313323A22B550049B95D /* HBShowData.m in Sources */,
@@ -449,9 +466,9 @@
 				92ADC20A23A1E39D00CC571E /* HBChapter.m in Sources */,
 				9206F75C23A0CCD200593596 /* LocalViewController.m in Sources */,
 				92ADC20E23A1E4AE00CC571E /* HBLocalBook.m in Sources */,
-				92A4A51E23A769B900F82FCC /* HBNetSearchBook.m in Sources */,
 				92A4A53A23A78B0D00F82FCC /* HBNetReadVC.m in Sources */,
 				9206F75623A0CCD200593596 /* AppDelegate.m in Sources */,
+				92B3437523AA2F390040296C /* HBNetBook.m in Sources */,
 				92A4A52B23A773CA00F82FCC /* HBNetSearchCell.m in Sources */,
 				9206F76723A0CCD500593596 /* main.m in Sources */,
 				92327BD923A380B9002A02C6 /* HBTopToolView.m in Sources */,
@@ -465,8 +482,9 @@
 				92A4A53723A7852F00F82FCC /* HBNetBookDetailVC.m in Sources */,
 				92A4A52723A76FC200F82FCC /* HBNetSearchBookListVC.m in Sources */,
 				92A4A53D23A7D2FE00F82FCC /* HBNetBookManager.m in Sources */,
+				92E7009E23A8C33500BA68BC /* HBDBManager.m in Sources */,
 				92A4A52E23A7751D00F82FCC /* UIColor+Hex.m in Sources */,
-				92A4A53423A7815300F82FCC /* HBNetChapter.m in Sources */,
+				92E700A623A8D75900BA68BC /* HBNetBookItem.m in Sources */,
 				92ADC21323A2111500CC571E /* HBLocalBookManager.m in Sources */,
 				92327BD523A36B99002A02C6 /* HBToolsView.m in Sources */,
 			);

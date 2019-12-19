@@ -8,6 +8,7 @@
 
 #import "HBNetManager.h"
 #import "HBNetService.h"
+#import "HBDBManager.h"
 
 @interface HBNetManager ()
 
@@ -34,7 +35,7 @@
     return self;
 }
 
-- (void)searchBookWithName:(NSString *)bookName complete:(void (^)(NSError * _Nullable, NSArray<HBNetSearchBook *> * _Nullable))complete {
+- (void)searchBookWithName:(NSString *)bookName complete:(void (^)(NSError * _Nullable, NSArray<HBNetBook *> * _Nullable))complete {
     
     [self p_api:@"xsname" param:bookName complete:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
         if (error) {
@@ -43,36 +44,62 @@
         }
         
         NSArray *array = result[@"list"];
-
-        NSArray *bookList = [NSArray yy_modelArrayWithClass:HBNetSearchBook.class json:array];
+        
+        
+        NSArray *bookList = [NSArray yy_modelArrayWithClass:HBNetBook.class json:array];
         !complete ?: complete(nil, bookList);
 
     }];
 }
 
-- (void)fetchNetBookDetailWithUrl:(NSString *)url complete:(void (^)(NSError * _Nullable, HBNetBookDetail * _Nullable))complete {
-    
-    [self p_api:@"xsurl1" param:url complete:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
+- (void)updateNetBookChapterList:(HBNetBook *)book complete:(void (^)(NSError * _Nullable, HBNetBook * _Nullable))complete {
+    [self p_api:@"xsurl1" param:book.bookId complete:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
         if (error) {
-            !complete ?: complete(error, nil);
+            !complete ?: complete(error, book);
             return ;
         }
         
-        HBNetBookDetail *detail = [HBNetBookDetail yy_modelWithJSON:result];
+        NSDictionary *dataDic = result[@"data"];
         
-        !complete ?: complete(nil, detail);
+        NSArray *list = result[@"list"];
+                
+        HBNetBook *tempBook = [HBNetBook yy_modelWithJSON:dataDic];
         
+        book.status = tempBook.status;
+        book.introduce = tempBook.introduce;
+        book.time = tempBook.time;
+        
+        
+        NSMutableArray *chapterList = @[].mutableCopy;
+        
+        for (NSDictionary *dic in list) {
+            HBChapter *chapter = HBChapter.new;
+            chapter.title = dic[@"num"];
+            chapter.chapterId = dic[@"url"];
+            [chapterList addObject:chapter];
+        }
+        
+        book.chapterList = chapterList;
+        [HBDBManager.sharedInstance updateNetBook:book];
+        !complete ?: complete(nil, book);
     }];
 }
 
-- (void)fetchNetBookContentWithUrl:(NSString *)url complete:(nonnull void (^)(NSError * _Nullable, HBNetChapter * _Nullable))complete {
+- (void)fetchNetBookContentWithUrl:(NSString *)url complete:(nonnull void (^)(NSError * _Nullable, HBChapter * _Nullable))complete {
     [self p_api:@"xsurl2" param:url complete:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
         if (error) {
             !complete ?: complete(error, nil);
             return ;
         }
         
-        HBNetChapter *chapter = [HBNetChapter yy_modelWithJSON:result];
+        HBChapter *chapter = HBChapter.new;
+        chapter.chapterId = url;
+        chapter.title = result[@"num"];
+        
+        NSArray *array = result[@"content"];
+        chapter.text = [array componentsJoinedByString:@"\n"];
+                
+//        HBNetChapter *chapter = [HBNetChapter yy_modelWithJSON:result];
         !complete ?: complete(nil, chapter);
     }];
 }
@@ -84,9 +111,13 @@
     NSString *urlStr = [NSString stringWithFormat:@"http://api.pingcc.cn/?%@=%@", api, param];
     
     urlStr = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLFragmentAllowedCharacterSet];
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:true];
+    });
     [_service netType:HBNetType_GET url:urlStr param:nil complete:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
-       
+       dispatch_async(dispatch_get_main_queue(), ^{
+           [UIApplication.sharedApplication setNetworkActivityIndicatorVisible:false];
+       });
         if (error) {
             !complete ?: complete(error, nil);
             return ;

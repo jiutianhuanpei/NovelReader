@@ -19,7 +19,7 @@
 
 @implementation HBNetBookManager
 
-- (instancetype)initWithBook:(HBNetBookDetail *)book {
+- (instancetype)initWithBook:(HBNetBook *)book {
     self = [super init];
     if (self) {
         _book = book;
@@ -48,7 +48,7 @@
         NSUInteger pageNum = [self pageNumAtChapter:data.chapterIndex];
         if (data.pageIndex == pageNum - 1) {
             //本章最后一页，解析下一章
-            [self parsingShowDataAtChapterAtIndex:MIN(data.chapterIndex + 1, self.book.list.count - 1) complete:nil];
+            [self parsingShowDataAtChapterAtIndex:MIN(data.chapterIndex + 1, self.book.chapterList.count - 1) complete:nil];
         }
     }
     return data;
@@ -82,7 +82,7 @@
     if (showData.pageIndex + 1 >= pageNum) {
         //下一页会在下章
         
-        if (showData.chapterIndex + 1 >= self.book.list.count) {
+        if (showData.chapterIndex + 1 >= self.book.chapterList.count) {
             //下一章超出本书
             return nil;
         }
@@ -102,7 +102,7 @@
     }
     
     //解析后一章
-    if (chapterIndex + 1 < _book.list.count) {
+    if (chapterIndex + 1 < _book.chapterList.count) {
         [self p_parsingShowDataAtChapterAtIndex:chapterIndex + 1 complete:nil];
     }
 }
@@ -112,7 +112,7 @@
 #pragma mark - private
 - (void)p_parsingShowDataAtChapterAtIndex:(NSUInteger)chapterIndex complete:(dispatch_block_t _Nullable)complete {
     
-    HBNetBookChapter *bookChapter = _book.list[chapterIndex];
+    HBChapter *bookChapter = _book.chapterList[chapterIndex];
     
     NSArray *array = _chapterContentDic[@(chapterIndex)];
     if (array.count > 0) {
@@ -122,14 +122,14 @@
     }
     
     __weak typeof(self) weakSelf = self;
-    [HBNetManager.sharedInstance fetchNetBookContentWithUrl:bookChapter.url complete:^(NSError * _Nullable error, HBNetChapter * _Nullable chapter) {
+    [HBNetManager.sharedInstance fetchNetBookContentWithUrl:bookChapter.chapterId complete:^(NSError * _Nullable error, HBChapter * _Nullable chapter) {
         
         if (!chapter) {
             !complete ?: complete();
             return ;
         }
         
-        NSString *novel = [chapter.content componentsJoinedByString:@"\n"];
+        NSString *novel = chapter.text;
         
         NSAttributedString *att = [[NSAttributedString alloc] initWithString:novel attributes:HBConfigManager.sharedInstance.attributeDic];
         
